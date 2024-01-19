@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -220,7 +221,6 @@
             this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 55;
             this.label1.Text = "Bookings\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button3
             // 
@@ -270,12 +270,19 @@
             // FlightDGV
             // 
             this.FlightDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));         
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FlightDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.FlightDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FlightDGV.Location = new System.Drawing.Point(29, 493);
             this.FlightDGV.Name = "FlightDGV";
             this.FlightDGV.RowHeadersWidth = 51;
             this.FlightDGV.RowTemplate.Height = 24;
             this.FlightDGV.Size = new System.Drawing.Size(647, 221);
+            this.FlightDGV.ForeColor = System.Drawing.Color.Black;
             this.FlightDGV.TabIndex = 59;
             this.FlightDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FlightDGV_CellContentClick);
             // 

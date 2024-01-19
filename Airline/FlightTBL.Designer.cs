@@ -248,7 +248,7 @@
             this.label7.Size = new System.Drawing.Size(121, 23);
             this.label7.TabIndex = 19;
             this.label7.Text = "TakeofDate";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+           
             // 
             // FDate
             // 
@@ -260,7 +260,7 @@
             this.FDate.Name = "FDate";
             this.FDate.Size = new System.Drawing.Size(160, 32);
             this.FDate.TabIndex = 20;
-            this.FDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            
             // 
             // panel3
             // 
@@ -270,7 +270,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(623, 25);
             this.panel3.TabIndex = 47;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+           
             // 
             // panel1
             // 

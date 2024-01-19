@@ -70,8 +70,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(292, 29);
             this.label2.TabIndex = 5;
-            this.label2.Text = "View Scheduled Flights";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "View Scheduled Flights";         
             // 
             // label1
             // 
@@ -82,8 +81,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 37);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Turkish Airlines";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Turkish Airlines";         
             // 
             // FDate
             // 
@@ -198,7 +196,6 @@
             this.label4.Size = new System.Drawing.Size(138, 23);
             this.label4.TabIndex = 23;
             this.label4.Text = "Num of Seats";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Seatnum
             // 

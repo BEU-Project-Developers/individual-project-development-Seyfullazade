@@ -62,10 +62,7 @@ namespace Airline
 
             Con.Close();
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void CancellationTbl_Load(object sender, EventArgs e)
         {
@@ -98,7 +95,6 @@ namespace Airline
                     MessageBox.Show("Flight Deleted Successfully");
                     Con.Close();
                     populate();
-                deleteTicket();
                 }
                 catch (Exception Ex)
                 {
@@ -122,10 +118,9 @@ namespace Airline
                     string query = "insert into CancelTbl values(" + CanId.Text + ", " + TidCb.SelectedValue.ToString() + ",'" + FcodeTb.Text + "', '" + CancDate.Value.Date + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Ticekt Cancelled Sucesssfully");
+                    MessageBox.Show("Ticket Cancelled Sucesssfully");
                     Con.Close();
                     populate();
-                    deleteTicket();
 
                 }
                 catch (Exception Ex)
@@ -148,9 +143,6 @@ namespace Airline
             Application.Exit();
         }
 
-        private void CancelDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

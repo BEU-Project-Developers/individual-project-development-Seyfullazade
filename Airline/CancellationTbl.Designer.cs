@@ -70,7 +70,6 @@
             this.label2.Size = new System.Drawing.Size(246, 29);
             this.label2.TabIndex = 36;
             this.label2.Text = "Ticket Cancellation";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -175,9 +174,7 @@
             this.CancelDGV.RowHeadersWidth = 51;
             this.CancelDGV.RowTemplate.Height = 24;
             this.CancelDGV.Size = new System.Drawing.Size(589, 262);
-            this.CancelDGV.TabIndex = 71;
-            this.CancelDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CancelDGV_CellContentClick);
-            // 
+            this.CancelDGV.TabIndex = 71;            
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Control;

@@ -25,7 +25,7 @@ namespace Airline
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            startpoint += 1;
+            startpoint += 4;
             Myprogress.Value = startpoint;
             if (Myprogress.Value == 100)
             {
@@ -37,9 +37,6 @@ namespace Airline
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

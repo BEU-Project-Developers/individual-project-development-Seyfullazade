@@ -95,8 +95,7 @@
             this.label1.Size = new System.Drawing.Size(224, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Turkish Airlines";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
+             //
             // label6
             // 
             this.label6.AutoSize = true;
@@ -351,7 +350,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(623, 26);
             this.panel1.TabIndex = 45;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -368,7 +366,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(623, 25);
             this.panel3.TabIndex = 46;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // PphoneTb
             // 

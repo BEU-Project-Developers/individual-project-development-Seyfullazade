@@ -26,17 +26,6 @@ namespace Airline
 
         }
 
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (FcodeTb.Text == "" || Fsrc.Text == "" || FDest.Text == "" || FDate.Text == "" || SeatNum.Text=="")
@@ -87,11 +76,7 @@ namespace Airline
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+   
         private void button4_Click(object sender, EventArgs e)
         {
             Home home = new Home();

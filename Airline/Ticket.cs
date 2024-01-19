@@ -102,10 +102,6 @@ namespace Airline
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -122,7 +118,7 @@ namespace Airline
                     string query = "insert into TicketTbl values(" + Tid.Text + ",'" + FCodeCb.SelectedValue.ToString() + "'," + PIdCb.SelectedValue.ToString() + ", '" + PNameTb.Text + "', '" + PPassTb.Text + "', '" + PNatTb.Text + "'," + PAmtTb.Text + ")";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Ticekt Booked Sucesssfully");
+                    MessageBox.Show("Ticket Booked Sucesssfully");
                     Con.Close();
                     populate();
 
@@ -156,7 +152,12 @@ namespace Airline
         }
 
         private void FlightDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+          
         {
+            FlightDGV.ForeColor = System.Drawing.Color.Black;
+
+
+
             if (FlightDGV.SelectedRows.Count > 0)
             {
                 Tid.Text = FlightDGV.SelectedRows[0].Cells[0].Value.ToString();

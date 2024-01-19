@@ -46,7 +46,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+           
             // 
             // label1
             // 
@@ -65,6 +65,7 @@
             this.Myprogress.Name = "Myprogress";
             this.Myprogress.Size = new System.Drawing.Size(778, 37);
             this.Myprogress.TabIndex = 2;
+          
             // 
             // timer1
             // 
