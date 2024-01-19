@@ -20,7 +20,7 @@ namespace Airline
             InitializeComponent();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Asus\OneDrive\İş masası\Sənədlər\AirlineDb.mdf"";Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
 
         private void populate()
         {
@@ -53,7 +53,7 @@ namespace Airline
                 try
                 {
                     Con.Open();
-                    string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + "' where Fcode='" + FcodeTb.Text + "';";
+                    string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + " where Fcode='" + FcodeTb.Text + "';";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Flight Updated Successfully");
@@ -70,6 +70,8 @@ namespace Airline
 
         private void ViewFlights_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'airlineDBDataSet3.FlightTbl' table. You can move, or remove it, as needed.
+            this.flightTblTableAdapter.Fill(this.airlineDBDataSet3.FlightTbl);
             populate();
         }
 
@@ -80,24 +82,40 @@ namespace Airline
             this.Hide();
 
         }
-
+       
         private void button2_Click(object sender, EventArgs e)
         {
             FcodeTb.Text = "";
             Seatnum.Text = "";
             SrcCb.Text = "";
             DstCb.Text = "";
-            FDate.Text = "";
+            FDate.Value = DateTime.Today;
+            //FDate.Text = "";
         }
 
         private void FlightDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            FcodeTb.Text = FlightDGV.SelectedRows[0].Cells[0].Value.ToString();
-            SrcCb.Text = FlightDGV.SelectedRows[0].Cells[1].Value.ToString();
-            DstCb.Text = FlightDGV.SelectedRows[0].Cells[2].Value.ToString();
-            Seatnum.Text = FlightDGV.SelectedRows[0].Cells[4].Value.ToString();
-        }
+            if (FlightDGV.SelectedRows.Count > 0)
+            {
+                FcodeTb.Text = FlightDGV.SelectedRows[0].Cells[0].Value.ToString();
+                SrcCb.Text = FlightDGV.SelectedRows[0].Cells[1].Value.ToString();
+                DstCb.Text = FlightDGV.SelectedRows[0].Cells[2].Value.ToString();
+                FDate.Text = FlightDGV.SelectedRows[0].Cells[3].Value.ToString();
+                Seatnum.Text = FlightDGV.SelectedRows[0].Cells[4].Value.ToString();
 
+            }
+            if (e.RowIndex >= 0 && e.RowIndex < FlightDGV.Rows.Count)
+            {
+                FcodeTb.Text = FlightDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
+                SrcCb.Text = FlightDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+                DstCb.Text = FlightDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                FDate.Text = FlightDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
+                Seatnum.Text = FlightDGV.Rows[e.RowIndex].Cells[4].Value.ToString();
+               
+            }
+
+        }
+        
         private void button4_Click(object sender, EventArgs e)
         {
             if (FcodeTb.Text == "")
@@ -109,7 +127,7 @@ namespace Airline
                 try
                 {
                     Con.Open();
-                    string query = "delete from FlightTbl where Fcode=" + FcodeTb.Text + ";";
+                    string query = "delete from FlightTbl where Fcode='" + FcodeTb.Text + "';";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Flight Deleted Successfully");

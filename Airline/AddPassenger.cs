@@ -16,7 +16,7 @@ namespace Airline
         {
             InitializeComponent();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Asus\OneDrive\İş masası\Sənədlər\AirlineDb.mdf"";Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
         private void label10_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -59,8 +59,10 @@ namespace Airline
 
         private void AddPassenger_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'airlineDBDataSet3.PassengerTbl' table. You can move, or remove it, as needed.
+            this.passengerTblTableAdapter1.Fill(this.airlineDBDataSet3.PassengerTbl);
             // TODO: This line of code loads data into the 'airlineDbDataSet.PassengerTbl' table. You can move, or remove it, as needed.
-            this.passengerTblTableAdapter.Fill(this.airlineDbDataSet.PassengerTbl);
+           // this.passengerTblTableAdapter.Fill(this.airlineDBDataSet3.PassengerTbl);
 
         }
 
@@ -74,6 +76,13 @@ namespace Airline
             NationalityCb.Text = "";
             GenderCb.Text = "";
             PhoneTb.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PaddTb = new System.Windows.Forms.TextBox();
+            this.passengerTblBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.airlineDBDataSet3 = new Airline.AirlineDBDataSet3();
             this.passengerTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.airlineDbDataSet = new Airline.AirlineDbDataSet();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,12 +61,17 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.PphoneTb = new System.Windows.Forms.TextBox();
             this.b = new System.Windows.Forms.Label();
+            this.passengerTblBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.passengerTblTableAdapter2 = new Airline.AirlineDBDataSet3TableAdapters.PassengerTblTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PassengerDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -88,6 +95,7 @@
             this.label1.Size = new System.Drawing.Size(224, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Turkish Airlines";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 
@@ -103,11 +111,21 @@
             // PaddTb
             // 
             this.PaddTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PaddTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassAd", true));
+            this.PaddTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassAd", true));
             this.PaddTb.Location = new System.Drawing.Point(451, 258);
             this.PaddTb.Name = "PaddTb";
             this.PaddTb.Size = new System.Drawing.Size(149, 22);
             this.PaddTb.TabIndex = 30;
+            // 
+            // passengerTblBindingSource3
+            // 
+            this.passengerTblBindingSource3.DataMember = "PassengerTbl";
+            this.passengerTblBindingSource3.DataSource = this.airlineDBDataSet3;
+            // 
+            // airlineDBDataSet3
+            // 
+            this.airlineDBDataSet3.DataSetName = "AirlineDBDataSet3";
+            this.airlineDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // passengerTblBindingSource
             // 
@@ -133,7 +151,7 @@
             // PpassTb
             // 
             this.PpassTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PpassTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "Passport", true));
+            this.PpassTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "Passport", true));
             this.PpassTb.Location = new System.Drawing.Point(164, 258);
             this.PpassTb.Name = "PpassTb";
             this.PpassTb.Size = new System.Drawing.Size(149, 22);
@@ -153,8 +171,8 @@
             // PnameTb
             // 
             this.PnameTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PnameTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassName", true));
-            this.PnameTb.Location = new System.Drawing.Point(451, 203);
+            this.PnameTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassName", true));
+            this.PnameTb.Location = new System.Drawing.Point(447, 203);
             this.PnameTb.Name = "PnameTb";
             this.PnameTb.Size = new System.Drawing.Size(149, 22);
             this.PnameTb.TabIndex = 26;
@@ -162,7 +180,7 @@
             // PidTb
             // 
             this.PidTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PidTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassId", true));
+            this.PidTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassId", true));
             this.PidTb.Location = new System.Drawing.Point(164, 200);
             this.PidTb.Name = "PidTb";
             this.PidTb.Size = new System.Drawing.Size(149, 22);
@@ -184,13 +202,13 @@
             this.PassengerDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.PassengerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.PassengerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PassengerDGV.Location = new System.Drawing.Point(0, 503);
+            this.PassengerDGV.Location = new System.Drawing.Point(11, 503);
             this.PassengerDGV.Name = "PassengerDGV";
             this.PassengerDGV.RowHeadersWidth = 51;
             this.PassengerDGV.RowTemplate.Height = 24;
-            this.PassengerDGV.Size = new System.Drawing.Size(623, 233);
+            this.PassengerDGV.Size = new System.Drawing.Size(600, 233);
             this.PassengerDGV.TabIndex = 36;
-            this.PassengerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.PassengerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PassengerDGV_CellContentClick_1);
             // 
             // passengerTblBindingSource1
             // 
@@ -204,7 +222,7 @@
             // 
             // GendCb
             // 
-            this.GendCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassGend", true));
+            this.GendCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassGend", true));
             this.GendCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GendCb.FormattingEnabled = true;
             this.GendCb.Items.AddRange(new object[] {
@@ -228,7 +246,7 @@
             // 
             // natcb
             // 
-            this.natcb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassNat", true));
+            this.natcb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassNat", true));
             this.natcb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.natcb.FormattingEnabled = true;
             this.natcb.Items.AddRange(new object[] {
@@ -240,7 +258,7 @@
             "SPANISH",
             "TURKISH",
             "ETHOPIAN"});
-            this.natcb.Location = new System.Drawing.Point(164, 315);
+            this.natcb.Location = new System.Drawing.Point(163, 315);
             this.natcb.Name = "natcb";
             this.natcb.Size = new System.Drawing.Size(149, 31);
             this.natcb.TabIndex = 38;
@@ -350,11 +368,12 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(623, 25);
             this.panel3.TabIndex = 46;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // PphoneTb
             // 
             this.PphoneTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PphoneTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassPhone", true));
+            this.PphoneTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassPhone", true));
             this.PphoneTb.Location = new System.Drawing.Point(285, 381);
             this.PphoneTb.Name = "PphoneTb";
             this.PphoneTb.Size = new System.Drawing.Size(149, 22);
@@ -370,6 +389,15 @@
             this.b.Size = new System.Drawing.Size(83, 27);
             this.b.TabIndex = 47;
             this.b.Text = "Phone";
+            // 
+            // passengerTblBindingSource2
+            // 
+            this.passengerTblBindingSource2.DataMember = "PassengerTbl";
+            this.passengerTblBindingSource2.DataSource = this.airlineDBDataSet3;
+            // 
+            // passengerTblTableAdapter2
+            // 
+            this.passengerTblTableAdapter2.ClearBeforeFill = true;
             // 
             // ViewPassenger
             // 
@@ -404,12 +432,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewPassenger";
             this.Load += new System.EventHandler(this.ViewPassenger_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PassengerDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,5 +478,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox PphoneTb;
         private System.Windows.Forms.Label b;
+        private AirlineDBDataSet3 airlineDBDataSet3;
+        private System.Windows.Forms.BindingSource passengerTblBindingSource2;
+        private AirlineDBDataSet3TableAdapters.PassengerTblTableAdapter passengerTblTableAdapter2;
+        private System.Windows.Forms.BindingSource passengerTblBindingSource3;
     }
 }

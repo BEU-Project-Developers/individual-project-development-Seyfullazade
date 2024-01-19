@@ -17,10 +17,12 @@ namespace Airline
         {
             InitializeComponent();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Asus\OneDrive\İş masası\Sənədlər\AirlineDb.mdf"";Integrated Security=True;Connect Timeout=30");
-
+        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+      
         private void FlightTBL_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'airlineDBDataSet3.FlightTbl' table. You can move, or remove it, as needed.
+            this.flightTblTableAdapter.Fill(this.airlineDBDataSet3.FlightTbl);
 
         }
 
@@ -83,6 +85,18 @@ namespace Airline
         {
             Application.Exit();
 
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
         }
     }
 }

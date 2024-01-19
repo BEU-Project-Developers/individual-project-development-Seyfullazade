@@ -15,6 +15,9 @@ namespace Airline
         public Login()
         {
             InitializeComponent();
+            // Set the PasswordChar property for the password TextBox
+            PassTb.PasswordChar = '*';
+           
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -25,6 +28,30 @@ namespace Airline
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UidTb.Text = "";
+            PassTb.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(UidTb.Text=="" || PassTb.Text == "")
+            {
+                MessageBox.Show("Enter The User Id and Password");
+            }
+            else if(UidTb.Text=="Admin" && PassTb.Text == "Admin")
+            {
+                Home home = new Home();
+                home.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong User Name or Password");
+            }
         }
     }
 }

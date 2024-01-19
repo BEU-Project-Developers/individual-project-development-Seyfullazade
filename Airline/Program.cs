@@ -17,11 +17,14 @@ namespace Airline
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AddPassenger());
-            // Application.Run(new ViewPassenger());
-            //Application.Run(new FlightTbl());
+            //Application.Run(new ViewPassenger());
+            // Application.Run(new FlightTbl());
             //Application.Run(new Ticket());
-              Application.Run(new Form1());
-            // Application.Run(new ViewFlights());
+            Application.Run(new Form1());
+            //Application.Run(new ViewFlights());
+            //Application.Run(new Home());
+            //Application.Run(new Login());
+            //Application.Run(new CancellationTbl());
         }
     }
 }

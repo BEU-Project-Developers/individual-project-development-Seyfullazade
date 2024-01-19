@@ -38,9 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PassTb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.UidTb = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -143,6 +143,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -157,14 +158,15 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Reset";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox2
+            // PassTb
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(388, 269);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 22);
-            this.textBox2.TabIndex = 8;
+            this.PassTb.BackColor = System.Drawing.SystemColors.Control;
+            this.PassTb.Location = new System.Drawing.Point(388, 269);
+            this.PassTb.Name = "PassTb";
+            this.PassTb.Size = new System.Drawing.Size(220, 22);
+            this.PassTb.TabIndex = 8;
             // 
             // label7
             // 
@@ -179,13 +181,13 @@
             this.label7.Text = "X";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // textBox3
+            // UidTb
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.Location = new System.Drawing.Point(388, 217);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(220, 22);
-            this.textBox3.TabIndex = 11;
+            this.UidTb.BackColor = System.Drawing.SystemColors.Control;
+            this.UidTb.Location = new System.Drawing.Point(388, 217);
+            this.UidTb.Name = "UidTb";
+            this.UidTb.Size = new System.Drawing.Size(220, 22);
+            this.UidTb.TabIndex = 11;
             // 
             // pictureBox1
             // 
@@ -204,9 +206,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(662, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.UidTb);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.PassTb);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -237,9 +239,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox PassTb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox UidTb;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

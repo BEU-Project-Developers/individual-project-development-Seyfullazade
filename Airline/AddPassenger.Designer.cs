@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PassId = new System.Windows.Forms.TextBox();
+            this.passengerTblBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.airlineDBDataSet3 = new Airline.AirlineDBDataSet3();
             this.passengerTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.airlineDbDataSet = new Airline.AirlineDbDataSet();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,9 +58,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.passengerTblTableAdapter = new Airline.AirlineDbDataSetTableAdapters.PassengerTblTableAdapter();
             this.button4 = new System.Windows.Forms.Button();
+            this.passengerTblBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.passengerTblTableAdapter1 = new Airline.AirlineDBDataSet3TableAdapters.PassengerTblTableAdapter();
+            this.passengerTblBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -86,11 +95,21 @@
             // PassId
             // 
             this.PassId.BackColor = System.Drawing.SystemColors.Control;
-            this.PassId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassId", true));
+            this.PassId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassId", true));
             this.PassId.Location = new System.Drawing.Point(219, 158);
             this.PassId.Name = "PassId";
             this.PassId.Size = new System.Drawing.Size(149, 22);
             this.PassId.TabIndex = 17;
+            // 
+            // passengerTblBindingSource3
+            // 
+            this.passengerTblBindingSource3.DataMember = "PassengerTbl";
+            this.passengerTblBindingSource3.DataSource = this.airlineDBDataSet3;
+            // 
+            // airlineDBDataSet3
+            // 
+            this.airlineDBDataSet3.DataSetName = "AirlineDBDataSet3";
+            this.airlineDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // passengerTblBindingSource
             // 
@@ -116,7 +135,7 @@
             // PassName
             // 
             this.PassName.BackColor = System.Drawing.SystemColors.Control;
-            this.PassName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassName", true));
+            this.PassName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassName", true));
             this.PassName.Location = new System.Drawing.Point(219, 221);
             this.PassName.Name = "PassName";
             this.PassName.Size = new System.Drawing.Size(149, 22);
@@ -147,7 +166,7 @@
             // PassportTb
             // 
             this.PassportTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PassportTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "Passport", true));
+            this.PassportTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "Passport", true));
             this.PassportTb.Location = new System.Drawing.Point(219, 277);
             this.PassportTb.Name = "PassportTb";
             this.PassportTb.Size = new System.Drawing.Size(149, 22);
@@ -167,7 +186,7 @@
             // PassAd
             // 
             this.PassAd.BackColor = System.Drawing.SystemColors.Control;
-            this.PassAd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassAd", true));
+            this.PassAd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassAd", true));
             this.PassAd.Location = new System.Drawing.Point(219, 340);
             this.PassAd.Name = "PassAd";
             this.PassAd.Size = new System.Drawing.Size(149, 22);
@@ -175,7 +194,7 @@
             // 
             // NationalityCb
             // 
-            this.NationalityCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassNat", true));
+            this.NationalityCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassNat", true));
             this.NationalityCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NationalityCb.FormattingEnabled = true;
             this.NationalityCb.Items.AddRange(new object[] {
@@ -205,7 +224,7 @@
             // 
             // GenderCb
             // 
-            this.GenderCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassGend", true));
+            this.GenderCb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassGend", true));
             this.GenderCb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenderCb.FormattingEnabled = true;
             this.GenderCb.Items.AddRange(new object[] {
@@ -284,7 +303,7 @@
             // PhoneTb
             // 
             this.PhoneTb.BackColor = System.Drawing.SystemColors.Control;
-            this.PhoneTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource, "PassPhone", true));
+            this.PhoneTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.passengerTblBindingSource3, "PassPhone", true));
             this.PhoneTb.Location = new System.Drawing.Point(219, 526);
             this.PhoneTb.Name = "PhoneTb";
             this.PhoneTb.Size = new System.Drawing.Size(149, 22);
@@ -293,9 +312,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(330, 155);
+            this.pictureBox1.Location = new System.Drawing.Point(328, 155);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(462, 393);
+            this.pictureBox1.Size = new System.Drawing.Size(464, 393);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
@@ -332,6 +351,21 @@
             this.button4.TabIndex = 35;
             this.button4.Text = "Back";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // passengerTblBindingSource1
+            // 
+            this.passengerTblBindingSource1.DataMember = "PassengerTbl";
+            this.passengerTblBindingSource1.DataSource = this.airlineDBDataSet3;
+            // 
+            // passengerTblTableAdapter1
+            // 
+            this.passengerTblTableAdapter1.ClearBeforeFill = true;
+            // 
+            // passengerTblBindingSource2
+            // 
+            this.passengerTblBindingSource2.DataMember = "PassengerTbl";
+            this.passengerTblBindingSource2.DataSource = this.airlineDBDataSet3;
             // 
             // AddPassenger
             // 
@@ -364,11 +398,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddPassenger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddPassenger";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.AddPassenger_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.airlineDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passengerTblBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +440,10 @@
         private System.Windows.Forms.BindingSource passengerTblBindingSource;
         private AirlineDbDataSetTableAdapters.PassengerTblTableAdapter passengerTblTableAdapter;
         private System.Windows.Forms.Button button4;
+        private AirlineDBDataSet3 airlineDBDataSet3;
+        private System.Windows.Forms.BindingSource passengerTblBindingSource1;
+        private AirlineDBDataSet3TableAdapters.PassengerTblTableAdapter passengerTblTableAdapter1;
+        private System.Windows.Forms.BindingSource passengerTblBindingSource3;
+        private System.Windows.Forms.BindingSource passengerTblBindingSource2;
     }
 }

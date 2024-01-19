@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightTbl));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SeatNum = new System.Windows.Forms.TextBox();
+            this.flightTblBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.airlineDBDataSet3 = new Airline.AirlineDBDataSet3();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +52,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.flightTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.flightTblTableAdapter = new Airline.AirlineDBDataSet3TableAdapters.FlightTblTableAdapter();
+            this.flightTblBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.flightTblBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,10 +100,21 @@
             // SeatNum
             // 
             this.SeatNum.BackColor = System.Drawing.SystemColors.Control;
+            this.SeatNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightTblBindingSource3, "FCap", true));
             this.SeatNum.Location = new System.Drawing.Point(184, 478);
             this.SeatNum.Name = "SeatNum";
             this.SeatNum.Size = new System.Drawing.Size(149, 22);
             this.SeatNum.TabIndex = 9;
+            // 
+            // flightTblBindingSource3
+            // 
+            this.flightTblBindingSource3.DataMember = "FlightTbl";
+            this.flightTblBindingSource3.DataSource = this.airlineDBDataSet3;
+            // 
+            // airlineDBDataSet3
+            // 
+            this.airlineDBDataSet3.DataSetName = "AirlineDBDataSet3";
+            this.airlineDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -128,6 +151,7 @@
             // 
             // Fsrc
             // 
+            this.Fsrc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightTblBindingSource3, "Fsrc", true));
             this.Fsrc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Fsrc.FormattingEnabled = true;
             this.Fsrc.Items.AddRange(new object[] {
@@ -147,6 +171,7 @@
             // 
             // FDest
             // 
+            this.FDest.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightTblBindingSource3, "FDest", true));
             this.FDest.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FDest.FormattingEnabled = true;
             this.FDest.Items.AddRange(new object[] {
@@ -167,6 +192,7 @@
             // FcodeTb
             // 
             this.FcodeTb.BackColor = System.Drawing.SystemColors.Control;
+            this.FcodeTb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightTblBindingSource3, "Fcode", true));
             this.FcodeTb.Location = new System.Drawing.Point(184, 186);
             this.FcodeTb.Name = "FcodeTb";
             this.FcodeTb.Size = new System.Drawing.Size(149, 22);
@@ -228,6 +254,7 @@
             // 
             this.FDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.FDate.CalendarTrailingForeColor = System.Drawing.Color.Gray;
+            this.FDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightTblBindingSource3, "FDate", true));
             this.FDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FDate.Location = new System.Drawing.Point(184, 415);
             this.FDate.Name = "FDate";
@@ -243,6 +270,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(623, 25);
             this.panel3.TabIndex = 47;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -292,6 +320,26 @@
             this.button4.TabIndex = 51;
             this.button4.Text = "Back";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // flightTblBindingSource
+            // 
+            this.flightTblBindingSource.DataMember = "FlightTbl";
+            this.flightTblBindingSource.DataSource = this.airlineDBDataSet3;
+            // 
+            // flightTblTableAdapter
+            // 
+            this.flightTblTableAdapter.ClearBeforeFill = true;
+            // 
+            // flightTblBindingSource1
+            // 
+            this.flightTblBindingSource1.DataMember = "FlightTbl";
+            this.flightTblBindingSource1.DataSource = this.airlineDBDataSet3;
+            // 
+            // flightTblBindingSource2
+            // 
+            this.flightTblBindingSource2.DataMember = "FlightTbl";
+            this.flightTblBindingSource2.DataSource = this.airlineDBDataSet3;
             // 
             // FlightTbl
             // 
@@ -324,7 +372,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlightTBL";
             this.Load += new System.EventHandler(this.FlightTBL_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airlineDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightTblBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,5 +405,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button4;
+        private AirlineDBDataSet3 airlineDBDataSet3;
+        private System.Windows.Forms.BindingSource flightTblBindingSource;
+        private AirlineDBDataSet3TableAdapters.FlightTblTableAdapter flightTblTableAdapter;
+        private System.Windows.Forms.BindingSource flightTblBindingSource3;
+        private System.Windows.Forms.BindingSource flightTblBindingSource1;
+        private System.Windows.Forms.BindingSource flightTblBindingSource2;
     }
 }

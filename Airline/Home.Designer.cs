@@ -64,6 +64,7 @@
             this.label10.Size = new System.Drawing.Size(34, 34);
             this.label10.TabIndex = 33;
             this.label10.Text = "X";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label2
             // 
@@ -92,31 +93,33 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(37, 362);
+            this.button1.Location = new System.Drawing.Point(48, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 51);
             this.button1.TabIndex = 3;
             this.button1.Text = "Flights";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(206, 360);
+            this.button2.Location = new System.Drawing.Point(212, 360);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 51);
             this.button2.TabIndex = 4;
             this.button2.Text = "Passengers";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(415, 360);
+            this.button3.Location = new System.Drawing.Point(399, 360);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(131, 51);
             this.button3.TabIndex = 5;
@@ -129,12 +132,13 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(603, 362);
+            this.button4.Location = new System.Drawing.Point(579, 362);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 51);
+            this.button4.Size = new System.Drawing.Size(171, 51);
             this.button4.TabIndex = 6;
             this.button4.Text = "Cancellation";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // pictureBox1
             // 

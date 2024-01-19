@@ -18,7 +18,7 @@ namespace Airline
             InitializeComponent();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Asus\OneDrive\İş masası\Sənədlər\AirlineDb.mdf"";Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
         private void populate() { 
             
             Con.Open();
@@ -33,24 +33,22 @@ namespace Airline
             }
         private void ViewPassenger_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'airlineDBDataSet1.PassengerTbl' table. You can move, or remove it, as needed.
-            this.passengerTblTableAdapter1.Fill(this.airlineDBDataSet1.PassengerTbl);
-            // TODO: This line of code loads data into the 'airlineDbDataSet.PassengerTbl' table. You can move, or remove it, as needed.
-            this.passengerTblTableAdapter.Fill(this.airlineDbDataSet.PassengerTbl);
+            // TODO: This line of code loads data into the 'airlineDBDataSet3.PassengerTbl' table. You can move, or remove it, as needed.
+            this.passengerTblTableAdapter2.Fill(this.airlineDBDataSet3.PassengerTbl);
             populate();
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PidTb.Text = PassengerDGV.SelectedRows[0].Cells[0].Value.ToString();
-            PnameTb.Text = PassengerDGV.SelectedRows[0].Cells[1].Value.ToString();
-            PpassTb.Text = PassengerDGV.SelectedRows[0].Cells[2].Value.ToString();
-            PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
-            natcb.SelectedItem=PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
-            GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
+           PidTb.Text = PassengerDGV.SelectedRows[0].Cells[0].Value.ToString();
+           PnameTb.Text = PassengerDGV.SelectedRows[0].Cells[1].Value.ToString();
+           PpassTb.Text = PassengerDGV.SelectedRows[0].Cells[2].Value.ToString();
+           PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
+           natcb.SelectedItem=PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
+           GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
 
-        }
+       }
 
         private void PassengerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,6 +58,17 @@ namespace Airline
             PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
             natcb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
             GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
+
+            if (e.RowIndex >= 0 && e.RowIndex < PassengerDGV.Rows.Count)
+            {
+                PidTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
+                PnameTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+                PpassTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                PaddTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
+                natcb.Text = PassengerDGV.Rows[e.RowIndex].Cells[4].Value.ToString();
+                GendCb.Text = PassengerDGV.Rows[e.RowIndex].Cells[5].Value.ToString();
+                PphoneTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[6].Value.ToString();
+            }
 
         }
 
@@ -107,6 +116,10 @@ namespace Airline
             PnameTb.Text = "";
             PpassTb.Text = "";
             PaddTb.Text="";
+            natcb.Text = "";
+            GendCb.Text= "";
+            PphoneTb.Text = "";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -120,7 +133,7 @@ namespace Airline
                 try
                 {
                     Con.Open();
-                    string query = "update PassengerTbl set PassName='" + PnameTb.Text + "',Passport='" + PpassTb.Text + "', PassAd='" + PaddTb.Text + "',PassNat='" + natcb.SelectedItem.ToString() + "',PassGend='" + GendCb.SelectedItem.ToString() + "', PassPhone='" + PphoneTb.Text + "' where PassId=" + PidTb.Text + ";";
+                    string query = "update PassengerTbl set PassName='" + PnameTb.Text + "',Passport='" + PpassTb.Text + "',PassAd='" + PaddTb.Text + "',PassNat='" + natcb.SelectedItem.ToString() + "',PassGend='" + GendCb.SelectedItem.ToString() + "' ,PassPhone='" + PphoneTb.Text + "' where PassId=" + PidTb.Text + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Passenger Updated Successfully");
@@ -132,6 +145,29 @@ namespace Airline
                     MessageBox.Show(Ex.Message);
                 }
                
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PassengerDGV_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>=0 && e.RowIndex<PassengerDGV.Rows.Count) {
+                PidTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
+                PnameTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+                PpassTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                PaddTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
+                natcb.Text = PassengerDGV.Rows[e.RowIndex].Cells[4].Value.ToString();
+                GendCb.Text = PassengerDGV.Rows[e.RowIndex].Cells[5].Value.ToString();
+                PphoneTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
         }
     }
