@@ -23,7 +23,10 @@ namespace Airline
         private void fillTicketId()
         {
             Con.Open();
-            SqlCommand cmd = new SqlCommand("select Tid from TicketTbl", Con);
+            // Select TicketIds from TicketTbl where the ticket is not canceled
+            string query = "SELECT Tid FROM TicketTbl WHERE NOT EXISTS (SELECT 1 FROM CancelTbl WHERE CancelTbl.TicId = TicketTbl.Tid)";
+
+            SqlCommand cmd = new SqlCommand(query, Con);
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -32,6 +35,11 @@ namespace Airline
             TidCb.ValueMember = "Tid";
             TidCb.DataSource = dt;
             Con.Close();
+        }
+
+        private void RefreshTicketIds()
+        {
+            fillTicketId(); // Call the fillTicketId method to repopulate the combobox
         }
         private void fetchfcode()
         {
@@ -87,23 +95,36 @@ namespace Airline
 
         private void deleteTicket()
         {
-
             try
             {
-                Con.Open();
-                string query = "delete from TicketTbl where Tid=" + TidCb.SelectedValue.ToString() + ";";
-                SqlCommand cmd = new SqlCommand(query, Con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("FlightTicket Deleted Successfully");
-                Con.Close();
-                populate();
+                if (TidCb.SelectedValue != null)
+                {
+                    Con.Open();
+                    string query = "DELETE FROM TicketTbl WHERE Tid = @TicketId";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.Parameters.AddWithValue("@TicketId", TidCb.SelectedValue);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Flight Ticket Deleted Successfully");
+                    Con.Close();
+
+                    // Debug statements
+                    Console.WriteLine("Deleted ticket with ID: " + TidCb.SelectedValue);
+
+                    // Refresh the data in DataGridView and update ticket IDs in the combobox
+                    populate();
+                    RefreshTicketIds();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a ticket to delete.");
+                }
             }
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
             }
-
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -145,6 +166,10 @@ namespace Airline
             Application.Exit();
         }
 
+        private void TidCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
        
     }
 }

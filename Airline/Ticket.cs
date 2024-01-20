@@ -20,10 +20,15 @@ namespace Airline
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+
         public void populate()
         {
             Con.Open();
-            String query = "select * from TicketTbl";
+            //String query = "select * from TicketTbl";
+            String query = "SELECT T.Tid, T.Fcode, T.Pid, T.PName, T.PPass, T.PNation, T.Amt " +
+                           "FROM TicketTbl T " +
+                          "LEFT JOIN CancelTbl C ON T.Tid = C.TicId " +
+                          "WHERE C.TicId IS NULL";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();

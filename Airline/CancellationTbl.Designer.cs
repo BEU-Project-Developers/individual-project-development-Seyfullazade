@@ -90,6 +90,7 @@
             this.TidCb.Name = "TidCb";
             this.TidCb.Size = new System.Drawing.Size(149, 31);
             this.TidCb.TabIndex = 67;
+            this.TidCb.SelectedIndexChanged += new System.EventHandler(this.TidCb_SelectedIndexChanged);
             this.TidCb.SelectionChangeCommitted += new System.EventHandler(this.TidCb_SelectionChangeCommitted);
             // 
             // label11
@@ -174,7 +175,8 @@
             this.CancelDGV.RowHeadersWidth = 51;
             this.CancelDGV.RowTemplate.Height = 24;
             this.CancelDGV.Size = new System.Drawing.Size(589, 262);
-            this.CancelDGV.TabIndex = 71;            
+            this.CancelDGV.TabIndex = 71;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Control;
