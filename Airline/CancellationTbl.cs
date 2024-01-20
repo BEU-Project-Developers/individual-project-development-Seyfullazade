@@ -83,25 +83,27 @@ namespace Airline
             this.Hide();
 
         }
+
+
         private void deleteTicket()
         {
 
-                try
-                {
-                    Con.Open();
+            try
+            {
+                Con.Open();
                 string query = "delete from TicketTbl where Tid=" + TidCb.SelectedValue.ToString() + ";";
-                    SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Flight Deleted Successfully");
-                    Con.Close();
-                    populate();
-                }
-                catch (Exception Ex)
-                {
-                    MessageBox.Show(Ex.Message);
-                }
-
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("FlightTicket Deleted Successfully");
+                Con.Close();
+                populate();
             }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

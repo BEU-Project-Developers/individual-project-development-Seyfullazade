@@ -20,9 +20,8 @@ namespace Airline
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
-        private void populate()
+        public void populate()
         {
-
             Con.Open();
             String query = "select * from TicketTbl";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
@@ -30,10 +29,26 @@ namespace Airline
             var ds = new DataSet();
             sda.Fill(ds);
             FlightDGV.DataSource = ds.Tables[0];
-
             Con.Close();
         }
 
+        public void RemoveTicket(int ticketId)
+        {
+            try
+            {
+                Con.Open();
+                string query = "delete from TicketTbl where Tid=" + ticketId + ";";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Ticket Removed Successfully");
+                Con.Close();
+                populate(); // Refresh the data after removing the ticket
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
         private void fillPassenger()
         {
             Con.Open();

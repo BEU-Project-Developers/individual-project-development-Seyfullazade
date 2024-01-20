@@ -95,7 +95,7 @@
             this.label1.Size = new System.Drawing.Size(224, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Turkish Airlines";
-             //
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -207,7 +207,7 @@
             this.PassengerDGV.RowTemplate.Height = 24;
             this.PassengerDGV.Size = new System.Drawing.Size(600, 233);
             this.PassengerDGV.TabIndex = 36;
-            this.PassengerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PassengerDGV_CellContentClick_1);
+            this.PassengerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PassengerDGV_CellContentClick);
             // 
             // passengerTblBindingSource1
             // 

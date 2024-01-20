@@ -39,25 +39,19 @@ namespace Airline
 
         }
 
-       private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           PidTb.Text = PassengerDGV.SelectedRows[0].Cells[0].Value.ToString();
-           PnameTb.Text = PassengerDGV.SelectedRows[0].Cells[1].Value.ToString();
-           PpassTb.Text = PassengerDGV.SelectedRows[0].Cells[2].Value.ToString();
-           PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
-           natcb.SelectedItem=PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
-           GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
-
-       }
+      
 
         private void PassengerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            PidTb.Text = PassengerDGV.SelectedRows[0].Cells[0].Value.ToString();
-            PnameTb.Text = PassengerDGV.SelectedRows[0].Cells[1].Value.ToString();
-            PpassTb.Text = PassengerDGV.SelectedRows[0].Cells[2].Value.ToString();
-            PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
-            natcb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
-            GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
+            if (PassengerDGV.SelectedRows.Count > 0 && e.RowIndex >= 0 && e.RowIndex < PassengerDGV.Rows.Count)
+            {
+                PidTb.Text = PassengerDGV.SelectedRows[0].Cells[0].Value.ToString();
+                PnameTb.Text = PassengerDGV.SelectedRows[0].Cells[1].Value.ToString();
+                PpassTb.Text = PassengerDGV.SelectedRows[0].Cells[2].Value.ToString();
+                PaddTb.Text = PassengerDGV.SelectedRows[0].Cells[3].Value.ToString();
+                natcb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[4].Value.ToString();
+                GendCb.SelectedItem = PassengerDGV.SelectedRows[0].Cells[5].Value.ToString();
+            }
 
             if (e.RowIndex >= 0 && e.RowIndex < PassengerDGV.Rows.Count)
             {
@@ -141,20 +135,6 @@ namespace Airline
                     MessageBox.Show(Ex.Message);
                 }
                
-            }
-        }
-
-
-        private void PassengerDGV_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex>=0 && e.RowIndex<PassengerDGV.Rows.Count) {
-                PidTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
-                PnameTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
-                PpassTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
-                PaddTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
-                natcb.Text = PassengerDGV.Rows[e.RowIndex].Cells[4].Value.ToString();
-                GendCb.Text = PassengerDGV.Rows[e.RowIndex].Cells[5].Value.ToString();
-                PphoneTb.Text = PassengerDGV.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
         }
     }

@@ -49,5 +49,10 @@ namespace Airline
                 MessageBox.Show("Wrong User Name or Password");
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
