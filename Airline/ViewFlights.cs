@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Airline
 {
     public partial class ViewFlights : Form
@@ -48,9 +49,11 @@ namespace Airline
                 try
                 {
                     Con.Open();
+
                     string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + "' where Fcode='" + FcodeTb.Text + "';";
+
                     SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();                
+                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Flight Updated Successfully");
                     Con.Close();
 
@@ -81,7 +84,7 @@ namespace Airline
             this.Hide();
         }
 
-        // Event handler for the "Clear" button
+        // Event handler for the "Reset" button
         private void button2_Click(object sender, EventArgs e)
         {
             // Clear the text in all input fields
@@ -104,7 +107,7 @@ namespace Airline
                 Seatnum.Text = FlightDGV.SelectedRows[0].Cells[4].Value.ToString();
             }
 
-            // Check if the clicked row is within the valid range: Setting values to the labels
+            // Check if the clicked row is within the valid range
             if (e.RowIndex >= 0 && e.RowIndex < FlightDGV.Rows.Count)
             {
                 FcodeTb.Text = FlightDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -126,8 +129,8 @@ namespace Airline
             else
             {
                 try
-                {                   
-                    Con.Open();              
+                {
+                    Con.Open();
                     string query = "delete from FlightTbl where Fcode='" + FcodeTb.Text + "';";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();

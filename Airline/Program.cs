@@ -20,11 +20,11 @@ namespace Airline
             //Application.Run(new Login());
             //Application.Run(new AddPassenger());
             //Application.Run(new ViewPassenger());
-            // Application.Run(new FlightTbl());
+             //Application.Run(new FlightTbl());
             //Application.Run(new ViewFlights());
-            //Application.Run(new Ticket());
+            Application.Run(new Ticket());
             //Application.Run(new CancellationTbl());
-            Application.Run(new Form1());
-         }
+            //Application.Run(new Form1());
+        }
     }
 }

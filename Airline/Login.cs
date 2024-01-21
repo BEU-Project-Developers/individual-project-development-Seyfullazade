@@ -28,7 +28,7 @@ namespace Airline
 
         // Event handler for the "Clear" button: Clear the text in both the User Id and Password textboxes
         private void button2_Click(object sender, EventArgs e)
-        {          
+        {
             UidTb.Text = "";
             PassTb.Text = "";
         }
@@ -36,7 +36,7 @@ namespace Airline
         // Event handler for the "Login" button
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             if (UidTb.Text == "" || PassTb.Text == "")
             {
                 MessageBox.Show("Enter The User Id and Password");

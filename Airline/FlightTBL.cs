@@ -45,8 +45,8 @@ namespace Airline
 
                     // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();                    
-                    MessageBox.Show("Flight Recorded Successfully");                 
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Flight Recorded Successfully");
                     Con.Close();
                 }
                 catch (Exception Ex)
@@ -56,7 +56,7 @@ namespace Airline
             }
         }
 
-        // Event handler for the "Clear" button
+        // Event handler for the "Reset" button
         private void button2_Click(object sender, EventArgs e)
         {
             // Clear the text in all input fields
