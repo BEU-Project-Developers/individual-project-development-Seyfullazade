@@ -15,11 +15,10 @@ namespace Airline
 {
     public partial class CancellationTbl : Form
     {
-        public CancellationTbl()
-        {
-            InitializeComponent();
-        }
+        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+
+        // Method to fill the Ticket IDs ComboBox with non-canceled tickets
         private void fillTicketId()
         {
             Con.Open();
@@ -37,10 +36,13 @@ namespace Airline
             Con.Close();
         }
 
+        // Method to refresh the Ticket IDs in the ComboBox
         private void RefreshTicketIds()
         {
-            fillTicketId(); // Call the fillTicketId method to repopulate the combobox
+            fillTicketId(); // Call the fillTicketId method to repopulate the ComboBox
         }
+
+        // Method to fetch and display the Flight Code based on selected Ticket ID
         private void fetchfcode()
         {
             Con.Open();
@@ -52,14 +54,13 @@ namespace Airline
             foreach (DataRow dr in dt.Rows)
             {
                 FcodeTb.Text = dr["Fcode"].ToString();
-
             }
             Con.Close();
         }
 
+        // Method to populate the DataGridView with data from the CancelTbl table
         private void populate()
         {
-
             Con.Open();
             String query = "select * from CancelTbl";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
@@ -67,32 +68,31 @@ namespace Airline
             var ds = new DataSet();
             sda.Fill(ds);
             CancelDGV.DataSource = ds.Tables[0];
-
             Con.Close();
         }
-       
 
+        // Event handler for the form load event
         private void CancellationTbl_Load(object sender, EventArgs e)
         {
             fillTicketId();
             populate();
-
         }
 
+        // Event handler for the Ticket ID ComboBox selection change
         private void TidCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             fetchfcode();
         }
 
+        // Event handler for the "Go Back" button
         private void button3_Click(object sender, EventArgs e)
         {
             Home home = new Home();
             home.Show();
             this.Hide();
-
         }
 
-
+        // Method to delete a ticket from the TicketTbl table based on the selected Ticket ID
         private void deleteTicket()
         {
             try
@@ -106,11 +106,9 @@ namespace Airline
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Flight Ticket Deleted Successfully");
                     Con.Close();
-
-                    // Debug statements
                     Console.WriteLine("Deleted ticket with ID: " + TidCb.SelectedValue);
 
-                    // Refresh the data in DataGridView and update ticket IDs in the combobox
+                    // Refresh the data in DataGridView and update ticket IDs in the ComboBox
                     populate();
                     RefreshTicketIds();
                 }
@@ -125,35 +123,36 @@ namespace Airline
             }
         }
 
-
+        // Event handler for the "Cancel Ticket" button
         private void button1_Click(object sender, EventArgs e)
         {
             if (CanId.Text == "" || FcodeTb.Text == "")
             {
                 MessageBox.Show("Missing Information");
             }
-
             else
             {
                 try
                 {
                     Con.Open();
+                    // SQL query to insert a new cancellation record into the CancelTbl table
                     string query = "insert into CancelTbl values(" + CanId.Text + ", " + TidCb.SelectedValue.ToString() + ",'" + FcodeTb.Text + "', '" + CancDate.Value.Date + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Ticket Cancelled Sucesssfully");
+                    MessageBox.Show("Ticket Cancelled Successfully");
                     Con.Close();
                     populate();
-
+                    RefreshTicketIds();
+                    TidCb.Text = "";
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
             }
         }
 
+        // Event handler for the "Clear" button
         private void button2_Click(object sender, EventArgs e)
         {
             CanId.Text = "";
@@ -161,15 +160,10 @@ namespace Airline
             TidCb.Text = "";
         }
 
+        // Event handler for the close button (X) on the form
         private void label10_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void TidCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-       
     }
 }

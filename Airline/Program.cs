@@ -25,10 +25,6 @@ namespace Airline
             //Application.Run(new Ticket());
             //Application.Run(new CancellationTbl());
             Application.Run(new Form1());
-            
-            
-            
-           
-        }
+         }
     }
 }

@@ -15,16 +15,17 @@ namespace Airline
 {
     public partial class ViewFlights : Form
     {
+        // Create a SqlConnection object to connect to the database
+        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+
         public ViewFlights()
         {
             InitializeComponent();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
-
+        // Method to populate the DataGridView with data from the database
         private void populate()
         {
-
             Con.Open();
             String query = "select * from FlightTbl";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
@@ -32,14 +33,13 @@ namespace Airline
             var ds = new DataSet();
             sda.Fill(ds);
             FlightDGV.DataSource = ds.Tables[0];
-
             Con.Close();
         }
 
-       
+        // Event handler for the "Update Flight" button
         private void button1_Click(object sender, EventArgs e)
         {
-
+            // Check if any required information is missing
             if (FcodeTb.Text == "" || Seatnum.Text == "")
             {
                 MessageBox.Show("Missing Information");
@@ -48,49 +48,66 @@ namespace Airline
             {
                 try
                 {
+                    // Open the database connection
                     Con.Open();
-                    string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + " where Fcode='" + FcodeTb.Text + "';";
+
+                    // SQL query to update flight information based on the Flight Code
+                    string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + "' where Fcode='" + FcodeTb.Text + "';";
+
+                    // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
+
+                    // Display a success message
                     MessageBox.Show("Flight Updated Successfully");
+
+                    // Close the database connection
                     Con.Close();
+
+                    // Populate the DataGridView with updated data
                     populate();
                 }
                 catch (Exception Ex)
                 {
+                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
-
             }
         }
 
+        // Event handler for the form load event
         private void ViewFlights_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'airlineDBDataSet3.FlightTbl' table. You can move, or remove it, as needed.
+            // Load data into the FlightTbl table from the database
             this.flightTblTableAdapter.Fill(this.airlineDBDataSet3.FlightTbl);
+            // Populate the DataGridView with data
             populate();
         }
 
+        // Event handler for the "Add Flight" button
         private void button3_Click(object sender, EventArgs e)
         {
+            // Open the FlightTbl form and hide the current ViewFlights form
             FlightTbl Addfl = new FlightTbl();
             Addfl.Show();
             this.Hide();
-
         }
-       
+
+        // Event handler for the "Clear" button
         private void button2_Click(object sender, EventArgs e)
         {
+            // Clear the text in all input fields
             FcodeTb.Text = "";
             Seatnum.Text = "";
             SrcCb.Text = "";
             DstCb.Text = "";
             FDate.Value = DateTime.Today;
-            //FDate.Text = "";
         }
 
+        // Event handler for the DataGridView cell click event
         private void FlightDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Check if a row is selected and within the valid range
             if (FlightDGV.SelectedRows.Count > 0)
             {
                 FcodeTb.Text = FlightDGV.SelectedRows[0].Cells[0].Value.ToString();
@@ -98,8 +115,9 @@ namespace Airline
                 DstCb.Text = FlightDGV.SelectedRows[0].Cells[2].Value.ToString();
                 FDate.Text = FlightDGV.SelectedRows[0].Cells[3].Value.ToString();
                 Seatnum.Text = FlightDGV.SelectedRows[0].Cells[4].Value.ToString();
-
             }
+
+            // Check if the clicked row is within the valid range
             if (e.RowIndex >= 0 && e.RowIndex < FlightDGV.Rows.Count)
             {
                 FcodeTb.Text = FlightDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -107,13 +125,13 @@ namespace Airline
                 DstCb.Text = FlightDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
                 FDate.Text = FlightDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
                 Seatnum.Text = FlightDGV.Rows[e.RowIndex].Cells[4].Value.ToString();
-               
             }
-
         }
-        
+
+        // Event handler for the "Delete Flight" button
         private void button4_Click(object sender, EventArgs e)
         {
+            // Check if the Flight Code textbox is empty
             if (FcodeTb.Text == "")
             {
                 MessageBox.Show("Enter The Flight to Delete");
@@ -122,22 +140,31 @@ namespace Airline
             {
                 try
                 {
+                    // Open the database connection
                     Con.Open();
+
+                    // SQL query to delete a flight based on the Flight Code
                     string query = "delete from FlightTbl where Fcode='" + FcodeTb.Text + "';";
+
+                    // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Flight Deleted Successfully");
-                    Con.Close();
-                    populate();
 
+                    // Display a success message
+                    MessageBox.Show("Flight Deleted Successfully");
+
+                    // Close the database connection
+                    Con.Close();
+
+                    // Populate the DataGridView with updated data
+                    populate();
                 }
                 catch (Exception Ex)
                 {
+                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
-
             }
         }
-
     }
 }

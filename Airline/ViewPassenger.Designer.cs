@@ -201,11 +201,11 @@
             this.PassengerDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.PassengerDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.PassengerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PassengerDGV.Location = new System.Drawing.Point(11, 503);
+            this.PassengerDGV.Location = new System.Drawing.Point(12, 503);
             this.PassengerDGV.Name = "PassengerDGV";
             this.PassengerDGV.RowHeadersWidth = 51;
             this.PassengerDGV.RowTemplate.Height = 24;
-            this.PassengerDGV.Size = new System.Drawing.Size(600, 233);
+            this.PassengerDGV.Size = new System.Drawing.Size(599, 233);
             this.PassengerDGV.TabIndex = 36;
             this.PassengerDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PassengerDGV_CellContentClick);
             // 
@@ -280,7 +280,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(460, 429);
+            this.button3.Location = new System.Drawing.Point(476, 429);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 50);
             this.button3.TabIndex = 44;
@@ -310,7 +310,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(310, 429);
+            this.button2.Location = new System.Drawing.Point(324, 429);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 50);
             this.button2.TabIndex = 42;
@@ -325,7 +325,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(11, 429);
+            this.button1.Location = new System.Drawing.Point(12, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 50);
             this.button1.TabIndex = 41;

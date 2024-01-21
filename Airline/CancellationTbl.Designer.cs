@@ -53,7 +53,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label10.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(596, -1);
+            this.label10.Location = new System.Drawing.Point(610, -1);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 34);
             this.label10.TabIndex = 37;
@@ -90,7 +90,6 @@
             this.TidCb.Name = "TidCb";
             this.TidCb.Size = new System.Drawing.Size(149, 31);
             this.TidCb.TabIndex = 67;
-            this.TidCb.SelectedIndexChanged += new System.EventHandler(this.TidCb_SelectedIndexChanged);
             this.TidCb.SelectionChangeCommitted += new System.EventHandler(this.TidCb_SelectionChangeCommitted);
             // 
             // label11
@@ -98,7 +97,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(12, 218);
+            this.label11.Location = new System.Drawing.Point(24, 218);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 23);
             this.label11.TabIndex = 66;
@@ -149,7 +148,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(12, 162);
+            this.label4.Location = new System.Drawing.Point(24, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 23);
             this.label4.TabIndex = 55;
@@ -170,7 +169,7 @@
             // 
             this.CancelDGV.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.CancelDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CancelDGV.Location = new System.Drawing.Point(16, 447);
+            this.CancelDGV.Location = new System.Drawing.Point(28, 447);
             this.CancelDGV.Name = "CancelDGV";
             this.CancelDGV.RowHeadersWidth = 51;
             this.CancelDGV.RowTemplate.Height = 24;
@@ -184,7 +183,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(470, 310);
+            this.button3.Location = new System.Drawing.Point(482, 310);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(135, 50);
             this.button3.TabIndex = 74;
@@ -214,7 +213,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(29, 310);
+            this.button1.Location = new System.Drawing.Point(28, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 50);
             this.button1.TabIndex = 72;
@@ -227,7 +226,7 @@
             this.CancDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.CancDate.CalendarTrailingForeColor = System.Drawing.Color.Gray;
             this.CancDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancDate.Location = new System.Drawing.Point(470, 211);
+            this.CancDate.Location = new System.Drawing.Point(468, 211);
             this.CancDate.Name = "CancDate";
             this.CancDate.Size = new System.Drawing.Size(149, 32);
             this.CancDate.TabIndex = 75;
@@ -237,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(631, 721);
+            this.ClientSize = new System.Drawing.Size(646, 721);
             this.Controls.Add(this.CancDate);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

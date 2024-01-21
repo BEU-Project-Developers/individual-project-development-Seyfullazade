@@ -64,7 +64,6 @@
             this.Myprogress.Name = "Myprogress";
             this.Myprogress.Size = new System.Drawing.Size(778, 37);
             this.Myprogress.TabIndex = 2;
-            this.Myprogress.Click += new System.EventHandler(this.Myprogress_Click);
             // 
             // timer1
             // 
