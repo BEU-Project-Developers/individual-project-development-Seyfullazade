@@ -13,7 +13,6 @@ namespace Airline
 {
     public partial class AddPassenger : Form
     {
-        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
 
         public AddPassenger()
@@ -24,7 +23,6 @@ namespace Airline
         // Event handler for the close button (X) on the form
         private void label10_Click(object sender, EventArgs e)
         {
-            // Exit the application when the close button is clicked
             Application.Exit();
         }
 
@@ -40,25 +38,16 @@ namespace Airline
             {
                 try
                 {
-                    // Open the database connection
                     Con.Open();
-
-                    // SQL query to insert passenger information into the database
                     string query = "insert into PassengerTbl values(" + PassId.Text + ",' " + PassName.Text + "', '" + PassportTb.Text + "', '" + PassAd.Text + "', '" + NationalityCb.SelectedItem.ToString() + "', '" + GenderCb.SelectedItem.ToString() + "','" + PhoneTb.Text + "')";
 
-                    // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-
-                    // Display a success message
                     MessageBox.Show("Passenger Recorded Successfully");
-
-                    // Close the database connection
                     Con.Close();
                 }
                 catch (Exception Ex)
                 {
-                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
             }

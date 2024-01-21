@@ -15,7 +15,6 @@ namespace Airline
 {
     public partial class CancellationTbl : Form
     {
-        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
 
         // Method to fill the Ticket IDs ComboBox with non-canceled tickets
@@ -84,7 +83,7 @@ namespace Airline
             fetchfcode();
         }
 
-        // Event handler for the "Go Back" button
+        // Event handler for the "Back" button
         private void button3_Click(object sender, EventArgs e)
         {
             Home home = new Home();
@@ -135,7 +134,6 @@ namespace Airline
                 try
                 {
                     Con.Open();
-                    // SQL query to insert a new cancellation record into the CancelTbl table
                     string query = "insert into CancelTbl values(" + CanId.Text + ", " + TidCb.SelectedValue.ToString() + ",'" + FcodeTb.Text + "', '" + CancDate.Value.Date + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
@@ -160,7 +158,6 @@ namespace Airline
             TidCb.Text = "";
         }
 
-        // Event handler for the close button (X) on the form
         private void label10_Click(object sender, EventArgs e)
         {
             Application.Exit();

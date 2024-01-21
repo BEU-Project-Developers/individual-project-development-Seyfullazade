@@ -15,7 +15,6 @@ namespace Airline
 {
     public partial class ViewFlights : Form
     {
-        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
 
         public ViewFlights()
@@ -48,20 +47,13 @@ namespace Airline
             {
                 try
                 {
-                    // Open the database connection
                     Con.Open();
 
-                    // SQL query to update flight information based on the Flight Code
                     string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + "' where Fcode='" + FcodeTb.Text + "';";
 
-                    // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
-                    cmd.ExecuteNonQuery();
-
-                    // Display a success message
+                    cmd.ExecuteNonQuery();                
                     MessageBox.Show("Flight Updated Successfully");
-
-                    // Close the database connection
                     Con.Close();
 
                     // Populate the DataGridView with updated data
@@ -69,7 +61,6 @@ namespace Airline
                 }
                 catch (Exception Ex)
                 {
-                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
             }
@@ -80,7 +71,6 @@ namespace Airline
         {
             // Load data into the FlightTbl table from the database
             this.flightTblTableAdapter.Fill(this.airlineDBDataSet3.FlightTbl);
-            // Populate the DataGridView with data
             populate();
         }
 
@@ -104,7 +94,6 @@ namespace Airline
             FDate.Value = DateTime.Today;
         }
 
-        // Event handler for the DataGridView cell click event
         private void FlightDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a row is selected and within the valid range
@@ -139,29 +128,18 @@ namespace Airline
             else
             {
                 try
-                {
-                    // Open the database connection
-                    Con.Open();
-
-                    // SQL query to delete a flight based on the Flight Code
+                {                   
+                    Con.Open();              
                     string query = "delete from FlightTbl where Fcode='" + FcodeTb.Text + "';";
-
-                    // Create a SqlCommand object and execute the query
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-
-                    // Display a success message
                     MessageBox.Show("Flight Deleted Successfully");
-
-                    // Close the database connection
                     Con.Close();
-
                     // Populate the DataGridView with updated data
                     populate();
                 }
                 catch (Exception Ex)
                 {
-                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
             }

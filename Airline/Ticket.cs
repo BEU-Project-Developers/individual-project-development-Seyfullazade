@@ -14,10 +14,7 @@ namespace Airline
 {
     public partial class Ticket : Form
     {
-        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
-
-        // Method to populate the DataGridView with data from the TicketTbl table
         public void populate()
         {
             Con.Open();
@@ -105,8 +102,6 @@ namespace Airline
             }
             Con.Close();
         }
-
-        // Event handler for the close button (X) on the form
         private void label10_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -118,7 +113,6 @@ namespace Airline
             // Fill the Passenger ID and Flight Code ComboBoxes
             fillPassenger();
             fillFlightCode();
-            // Populate the DataGridView with data from the TicketTbl table
             populate();
         }
 
@@ -134,7 +128,6 @@ namespace Airline
                 try
                 {
                     Con.Open();
-                    // SQL query to insert a new ticket into the TicketTbl table
                     string query = "insert into TicketTbl values(" + Tid.Text + ",'" + FCodeCb.SelectedValue.ToString() + "'," + PIdCb.SelectedValue.ToString() + ", '" + PNameTb.Text + "', '" + PPassTb.Text + "', '" + PNatTb.Text + "'," + PAmtTb.Text + ")";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
@@ -161,7 +154,7 @@ namespace Airline
             Tid.Text = "";
         }
 
-        // Event handler for the "Go Back" button
+        // Event handler for the "Back" button
         private void button3_Click(object sender, EventArgs e)
         {
             Home home = new Home();

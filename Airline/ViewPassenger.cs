@@ -13,15 +13,12 @@ namespace Airline
 {
     public partial class ViewPassenger : Form
     {
-        // Create a SqlConnection object to connect to the database
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
 
         public ViewPassenger()
         {
             InitializeComponent();
         }
-
-        // Method to populate the DataGridView with data from the database
         private void populate()
         {
             Con.Open();
@@ -34,7 +31,6 @@ namespace Airline
             Con.Close();
         }
 
-        // Event handler for the form load event
         private void ViewPassenger_Load(object sender, EventArgs e)
         {
             // Load data into the PassengerTbl table from the database
@@ -43,7 +39,6 @@ namespace Airline
             populate();
         }
 
-        // Event handler for the DataGridView cell click event
         private void PassengerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a row is selected and within the valid range
@@ -84,7 +79,6 @@ namespace Airline
         // Event handler for the "Delete Passenger" button
         private void button4_Click(object sender, EventArgs e)
         {
-            // Check if the Passenger ID textbox is empty
             if (PidTb.Text == "")
             {
                 MessageBox.Show("Enter The Passenger to Delete");
@@ -93,21 +87,16 @@ namespace Airline
             {
                 try
                 {
-                    // Open the database connection
                     Con.Open();
-                    // SQL query to delete a passenger based on the Passenger ID
                     string query = "delete from PassengerTbl where PassId=" + PidTb.Text + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
-                    // Execute the query and display a success message
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Passenger Deleted Successfully");
                     Con.Close();
-                    // Populate the DataGridView with updated data
                     populate();
                 }
                 catch (Exception Ex)
                 {
-                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
             }
@@ -138,21 +127,16 @@ namespace Airline
             {
                 try
                 {
-                    // Open the database connection
                     Con.Open();
-                    // SQL query to update passenger information based on the Passenger ID
                     string query = "update PassengerTbl set PassName='" + PnameTb.Text + "',Passport='" + PpassTb.Text + "',PassAd='" + PaddTb.Text + "',PassNat='" + natcb.SelectedItem.ToString() + "',PassGend='" + GendCb.SelectedItem.ToString() + "' ,PassPhone='" + PphoneTb.Text + "' where PassId=" + PidTb.Text + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
-                    // Execute the query and display a success message
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Passenger Updated Successfully");
                     Con.Close();
-                    // Populate the DataGridView with updated data
                     populate();
                 }
                 catch (Exception Ex)
                 {
-                    // Display an error message if an exception occurs
                     MessageBox.Show(Ex.Message);
                 }
             }
