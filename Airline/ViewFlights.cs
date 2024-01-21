@@ -48,9 +48,7 @@ namespace Airline
                 try
                 {
                     Con.Open();
-
                     string query = "update FlightTbl set Fsrc='" + SrcCb.SelectedItem.ToString() + "', Fdest='" + DstCb.SelectedItem.ToString() + "', FDate='" + FDate.Value.Date.ToString() + "', Fcap='" + Seatnum.Text + "' where Fcode='" + FcodeTb.Text + "';";
-
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();                
                     MessageBox.Show("Flight Updated Successfully");
@@ -106,7 +104,7 @@ namespace Airline
                 Seatnum.Text = FlightDGV.SelectedRows[0].Cells[4].Value.ToString();
             }
 
-            // Check if the clicked row is within the valid range
+            // Check if the clicked row is within the valid range: Setting values to the labels
             if (e.RowIndex >= 0 && e.RowIndex < FlightDGV.Rows.Count)
             {
                 FcodeTb.Text = FlightDGV.Rows[e.RowIndex].Cells[0].Value.ToString();
