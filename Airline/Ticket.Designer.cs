@@ -279,6 +279,7 @@
             this.FlightDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FlightDGV.Location = new System.Drawing.Point(25, 493);
             this.FlightDGV.Name = "FlightDGV";
+            this.FlightDGV.ForeColor = System.Drawing.Color.Black;
             this.FlightDGV.RowHeadersWidth = 51;
             this.FlightDGV.RowTemplate.Height = 24;
             this.FlightDGV.Size = new System.Drawing.Size(647, 221);

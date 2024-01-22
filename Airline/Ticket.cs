@@ -15,6 +15,10 @@ namespace Airline
     public partial class Ticket : Form
     {
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+        public Ticket()
+        {
+            InitializeComponent();
+        }
         public void populate()
         {
             Con.Open();

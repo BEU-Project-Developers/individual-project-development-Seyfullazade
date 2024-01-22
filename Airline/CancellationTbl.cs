@@ -16,6 +16,10 @@ namespace Airline
     public partial class CancellationTbl : Form
     {
         SqlConnection Con = new SqlConnection(@"Data Source=.; Initial Catalog=AirlineDB;Integrated Security=true;");
+        public CancellationTbl()
+        {
+            InitializeComponent();
+        }
 
         // Method to fill the Ticket IDs ComboBox with non-canceled tickets
         private void fillTicketId()
